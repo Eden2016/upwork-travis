@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../../../store/app.reducer';
+import * as gateActions from '../store/gate.actions'
 
 @Component({
   selector: 'app-gate-setup',
@@ -10,7 +13,8 @@ export class GateSetupComponent implements OnInit {
   gateFormGroup: FormGroup
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private store: Store<fromApp.AppState>
   ) { }
 
   ngOnInit(): void {
@@ -23,7 +27,7 @@ export class GateSetupComponent implements OnInit {
 
   addGate(): void {
     if (this.gateFormGroup.valid) {
-      console.log(this.gateFormGroup.value)
+      this.store.dispatch(gateActions.addGate({ gate: this.gateFormGroup.value }));
     }
   }
 }
