@@ -1,0 +1,29 @@
+<mat-horizontal-stepper #stepper>
+  <mat-step [stepControl]="gateFormGroup">
+    <form [formGroup]="gateFormGroup" class="gate-setup-form">
+      <ng-template matStepLabel>Gate Setup</ng-template>
+      <mat-form-field>
+        <mat-label>Gate Name</mat-label>
+        <input matInput placeholder="Enter Gate Name" formControlName="gateName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Stage</mat-label>
+        <mat-select formControlName="stage">
+          <mat-option value="verify">Verify</mat-option>
+          <mat-option value="assign">Assign</mat-option>
+          <mat-option value="track">Track</mat-option>
+          <mat-option value="exception">Exception</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Color</mat-label>
+        <mat-select formControlName="color">
+          <mat-option value="red">Red</mat-option>
+          <mat-option value="green">Green</mat-option>
+          <mat-option value="blue">Blue</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="addGate()">Add to Gate List</button>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>
