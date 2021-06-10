@@ -12,13 +12,17 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
 import { GateSetupComponent } from './stage-wizard-page/gate-setup/gate-setup.component';
+import { GateListComponent } from './stage-wizard-page/gate-list/gate-list.component';
+import { StoreModule } from '@ngrx/store';
+import * as fromGates from './stage-wizard-page/store/gate.reducer'
 
 
 @NgModule({
-  declarations: [StageWizardComponent, GateSetupComponent],
+  declarations: [StageWizardComponent, GateSetupComponent, GateListComponent],
   imports: [
     CommonModule,
     RouterModule,
+    StoreModule.forFeature('gates', fromGates.gateReducer),
     StageWizardRoutingModule,
     ReactiveFormsModule,
     MatCardModule,

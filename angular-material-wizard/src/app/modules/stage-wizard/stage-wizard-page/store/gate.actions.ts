@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Gate } from 'src/app/modules/models/gate.model';
+import { Gate } from './gate.model';
 
 
 export const addGate = createAction(
