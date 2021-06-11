@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../store/app.reducer';
-import * as GateActions from '../store/gate.actions'
+import * as GateActions from '../store/gate.actions';
 import { Gate } from '../store/gate.model';
 import { Subscription } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
@@ -31,7 +31,7 @@ export class GateListComponent implements OnInit, OnDestroy {
       })
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 

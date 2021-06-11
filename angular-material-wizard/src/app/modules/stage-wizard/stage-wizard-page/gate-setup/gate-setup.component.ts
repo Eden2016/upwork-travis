@@ -10,7 +10,7 @@ import * as gateActions from '../store/gate.actions'
   styleUrls: ['./gate-setup.component.scss']
 })
 export class GateSetupComponent implements OnInit {
-  gateFormGroup: FormGroup
+  gateFormGroup: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,

@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import * as fromGate from './modules/stage-wizard/stage-wizard-page/store/gate.reducer'
+
 @NgModule({
   declarations: [
     AppComponent

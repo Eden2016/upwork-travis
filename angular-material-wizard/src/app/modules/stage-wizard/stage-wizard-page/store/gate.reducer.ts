@@ -1,6 +1,6 @@
-import { createReducer, Action, on } from "@ngrx/store";
+import { createReducer, Action, on } from '@ngrx/store';
 import * as GatesActions from './gate.actions';
-import { Gate } from "./gate.model";
+import { Gate } from './gate.model';
 
 export interface State {
   gates: Gate[];
@@ -8,7 +8,7 @@ export interface State {
 
 const initialState: State = {
   gates: []
-}
+};
 
 const _gateReducer = createReducer(
 
@@ -31,8 +31,8 @@ const _gateReducer = createReducer(
       )
     })
   )
-)
+);
 
 export const gateReducer = (state: State, action: Action) => {
   return _gateReducer(state, action);
-}
+};
