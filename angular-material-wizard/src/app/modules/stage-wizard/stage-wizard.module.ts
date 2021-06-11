@@ -16,12 +16,14 @@ import { GateSetupComponent } from './stage-wizard-page/gate-setup/gate-setup.co
 import { GateListComponent } from './stage-wizard-page/gate-list/gate-list.component';
 import { StoreModule } from '@ngrx/store';
 import * as fromGates from './stage-wizard-page/store/gate.reducer'
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [StageWizardComponent, GateSetupComponent, GateListComponent],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule,
     StoreModule.forFeature('gates', fromGates.gateReducer),
     StageWizardRoutingModule,

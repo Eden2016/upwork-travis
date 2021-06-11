@@ -15,7 +15,8 @@ import { MatTableDataSource } from '@angular/material/table';
 export class GateListComponent implements OnInit, OnDestroy {
   gateList: Gate[] = [];
   dataSource: MatTableDataSource<Gate>;
-  displayedColumns: string[] = ['gateName', 'stage', 'color', 'delAction'];
+  gatesColumns: string[] = ['gateName', 'stage', 'color', 'delAction'];
+  
   private subscription: Subscription;
 
   constructor(
@@ -27,7 +28,7 @@ export class GateListComponent implements OnInit, OnDestroy {
       .select('gates')
       .pipe(map(gatesState => gatesState.gates))
       .subscribe((gates: Gate[]) => {
-        this.dataSource = new MatTableDataSource(gates);
+        this.gateList = gates;
       })
   }
 
