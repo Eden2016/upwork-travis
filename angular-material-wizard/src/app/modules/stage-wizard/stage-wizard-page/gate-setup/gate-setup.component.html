@@ -1,6 +1,6 @@
 <mat-horizontal-stepper #stepper>
-  <mat-step [stepControl]="gateFormGroup">
-    <form [formGroup]="gateFormGroup" class="gate-setup-form">
+  <mat-step [stepControl]="gateForm">
+    <form [formGroup]="gateForm" class="gate-setup-form">
       <ng-template matStepLabel>Gate Setup</ng-template>
       <mat-form-field>
         <mat-label>Gate Name</mat-label>

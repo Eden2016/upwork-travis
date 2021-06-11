@@ -10,7 +10,7 @@ import * as gateActions from '../store/gate.actions'
   styleUrls: ['./gate-setup.component.scss']
 })
 export class GateSetupComponent implements OnInit {
-  gateFormGroup: FormGroup;
+  gateForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -18,7 +18,7 @@ export class GateSetupComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.gateFormGroup = this.formBuilder.group({
+    this.gateForm = this.formBuilder.group({
       gateName: ['', Validators.required],
       stage: ['', Validators.required],
       color: ['', Validators.required]
@@ -26,8 +26,8 @@ export class GateSetupComponent implements OnInit {
   }
 
   addGate(): void {
-    if (this.gateFormGroup.valid) {
-      this.store.dispatch(gateActions.addGate({ gate: this.gateFormGroup.value }));
+    if (this.gateForm.valid) {
+      this.store.dispatch(gateActions.addGate({ gate: this.gateForm.value }));
     }
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../../store/app.reducer';
+import * as fieldActions from '../store/field.actions'
 
 @Component({
   selector: 'app-field-add-form',
@@ -9,7 +10,7 @@ import * as fromApp from '../../../../../store/app.reducer';
   styleUrls: ['./field-add-form.component.scss']
 })
 export class FieldAddFormComponent implements OnInit {
-  fieldFormControl: FormGroup;
+  fieldForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -17,14 +18,16 @@ export class FieldAddFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.fieldFormControl = this.formBuilder.group({
+    this.fieldForm = this.formBuilder.group({
       fieldName: ['', Validators.required],
       fieldType: ['', Validators.required]
     })
   }
 
   addCustomField(): void {
-    // Dispatch add Custom field action here
+    if (this.fieldForm.valid) {
+      this.store.dispatch(fieldActions.addField({ field: this.fieldForm.value }));
+    }
   }
 
 }
