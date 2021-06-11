@@ -8,3 +8,10 @@ export const addGate = createAction(
     gate: Gate
   }>()
 );
+
+export const deleteGate = createAction(
+  '[Gate] Delete Gate',
+  props<{
+    index: number
+  }>()
+);

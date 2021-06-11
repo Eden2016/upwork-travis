@@ -1,5 +1,5 @@
 import { createReducer, Action, on } from "@ngrx/store";
-import * as RecipesActions from './gate.actions';
+import * as GatesActions from './gate.actions';
 import { Gate } from "./gate.model";
 
 export interface State {
@@ -15,14 +15,24 @@ const _gateReducer = createReducer(
   initialState,
 
   on(
-    RecipesActions.addGate,
+    GatesActions.addGate,
     (state, action) => ({
       ...state,
       gates: state.gates.concat({ ...action.gate })
+    })
+  ),
+
+  on(
+    GatesActions.deleteGate,
+    (state, action) => ({
+      ...state,
+      gates: state.gates.filter(
+        (_, index) => index !== action.index
+      )
     })
   )
 )
 
 export const gateReducer = (state: State, action: Action) => {
-  return _gateReducer(state, action)
+  return _gateReducer(state, action);
 }

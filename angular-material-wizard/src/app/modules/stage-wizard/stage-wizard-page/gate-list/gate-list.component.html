@@ -3,21 +3,29 @@
 
   <!-- Gate Name Column -->
   <ng-container matColumnDef="gateName">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Gate Name </th>
+    <th mat-header-cell *matHeaderCellDef> Gate Name </th>
     <td mat-cell *matCellDef="let element"> {{element.gateName}} </td>
   </ng-container>
 
   <!-- Show Gate on Stage(s) Column -->
   <ng-container matColumnDef="stage">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Show Gate on Stage(s) </th>
+    <th mat-header-cell *matHeaderCellDef> Show Gate on Stage(s) </th>
     <td mat-cell *matCellDef="let element"> {{element.stage}} </td>
   </ng-container>
 
   <!-- Color Column -->
   <ng-container matColumnDef="color">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>
+    <th mat-header-cell *matHeaderCellDef> Color </th>
     <td mat-cell *matCellDef="let element"> {{element.color}} </td>
   </ng-container>
+
+  <!-- Del Column -->
+  <ng-container matColumnDef="delAction">
+    <th mat-header-cell *matHeaderCellDef class="last-column"> Delete </th>
+    <td mat-cell *matCellDef="let element;  let i = index;" class="last-column"> 
+       <button mat-raised-button color="warn" focusable="false" (click)="onDeleteGate(i)"> X </button>
+    </td>
+ </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
