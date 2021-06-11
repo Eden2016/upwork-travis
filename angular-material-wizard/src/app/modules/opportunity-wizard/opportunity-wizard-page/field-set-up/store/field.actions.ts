@@ -7,3 +7,10 @@ export const addField = createAction(
     field: Field
   }>()
 );
+
+export const deleteField = createAction(
+  '[Field] Delete Field',
+  props<{
+    index: number
+  }>()
+);

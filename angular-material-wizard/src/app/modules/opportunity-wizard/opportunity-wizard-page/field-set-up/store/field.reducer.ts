@@ -1,3 +1,4 @@
+import { state } from '@angular/animations';
 import { createReducer, Action, on } from '@ngrx/store';
 import * as FieldActions from './field.actions'
 import { Field } from './field.model'
@@ -13,12 +14,22 @@ const initialState: State = {
 const _fieldReducer = createReducer(
 
   initialState,
-  
+
   on(
     FieldActions.addField,
     (state, action) => ({
       ...state,
       fields: state.fields.concat({ ...action.field })
+    })
+  ),
+
+  on(
+    FieldActions.deleteField,
+    (state, action) => ({
+      ...state,
+      fields: state.fields.filter((
+        (_, index) => index != action.index
+      ))
     })
   )
 );

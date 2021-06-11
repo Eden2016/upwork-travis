@@ -13,23 +13,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { FieldAddFormComponent } from './opportunity-wizard-page/field-set-up/field-add-form/field-add-form.component';
 import { StoreModule } from '@ngrx/store';
-import * as fromFields from './opportunity-wizard-page/field-set-up/store/field.reducer'
+import * as fromFields from './opportunity-wizard-page/field-set-up/store/field.reducer';
+import { FieldListComponent } from './opportunity-wizard-page/field-set-up/field-list/field-list.component'
 
 @NgModule({
-  declarations: [OpportunityWizardComponent, FieldAddFormComponent],
+  declarations: [OpportunityWizardComponent, FieldAddFormComponent, FieldListComponent],
   imports: [
     CommonModule,
     RouterModule,
     StoreModule.forFeature('fields', fromFields.fieldReducer),
     OpportunityWizardRoutingModule,
     ReactiveFormsModule,
+    MatTableModule,
     MatCardModule,
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule,
-    MatTableModule,
+    MatButtonModule
   ]
 })
 export class OpportunityWizardModule { }

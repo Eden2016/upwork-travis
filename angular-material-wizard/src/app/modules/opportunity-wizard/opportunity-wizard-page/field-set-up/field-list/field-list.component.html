@@ -1,0 +1,33 @@
+<table mat-table [dataSource]="dataSource" matSort *ngIf="dataSource.data.length; else noFieldsAdded"
+  class="mat-elevation-z8">
+
+  <!-- Field Name Column -->
+  <ng-container matColumnDef="fieldName">
+    <th mat-header-cell *matHeaderCellDef> Field Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.fieldName}} </td>
+  </ng-container>
+
+  <!-- Field type Column-->
+  <ng-container matColumnDef="fieldType">
+    <th mat-header-cell *matHeaderCellDef> Field type </th>
+    <td mat-cell *matCellDef="let element"> {{element.fieldType}} </td>
+  </ng-container>
+
+  <!-- Del Column -->
+  <ng-container matColumnDef="delAction">
+    <th mat-header-cell *matHeaderCellDef class="last-column"> Delete </th>
+    <td mat-cell *matCellDef="let element;  let i = index;" class="last-column"> 
+       <button mat-raised-button color="warn" focusable="false" (click)="onDeleteField(i)"> X </button>
+    </td>
+ </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+<ng-template #noFieldsAdded>
+  <div class="no-data-wrapper">
+    <p>Please use the form above to add a new field</p>
+  </div>
+</ng-template>
