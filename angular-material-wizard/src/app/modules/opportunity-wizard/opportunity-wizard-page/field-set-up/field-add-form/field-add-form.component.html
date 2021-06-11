@@ -1,0 +1,18 @@
+<form [formGroup]="fieldFormControl" class="field-add-form">
+  <mat-form-field>
+    <mat-label>Field Name</mat-label>
+    <input matInput placeholder="Enter Gate Name" formControlName="fieldName" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Field Type</mat-label>
+    <mat-select formControlName="fieldType">
+      <mat-option value="text">Text</mat-option>
+      <mat-option value="boolean">Yes/No</mat-option>
+      <mat-option value="date">Date</mat-option>
+      <mat-option value="number">Number</mat-option>
+      <mat-option value="currency">Currency</mat-option>
+      <mat-option value="location">Location</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="addCustomField()">Add Field</button>
+</form>

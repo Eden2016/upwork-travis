@@ -1,1 +1,21 @@
-<p>opportunity-wizard works!</p>
+<mat-card class="opportunity-wrapper">
+  <mat-card-header>
+    <mat-card-title> Opportunity </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-horizontal-stepper>
+      <mat-step>
+        <ng-template matStepLabel>Field set up</ng-template>
+        <app-field-add-form></app-field-add-form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Action Setup</ng-template>
+        <!-- Add Action Setup component -->
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Gate Rules</ng-template>
+        <!-- Add  Gate Rules component-->
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-card-content>
+</mat-card>
