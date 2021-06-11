@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { map, take } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../store/app.reducer';
 import { Gate } from '../store/gate.model';
 import { Subscription } from 'rxjs';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-gate-list',
@@ -12,7 +13,9 @@ import { Subscription } from 'rxjs';
 })
 export class GateListComponent implements OnInit, OnDestroy {
   gateList: Gate[] = [];
-  subscription: Subscription;
+  dataSource: MatTableDataSource<Gate>;
+  displayedColumns: string[] = ['gateName', 'stage', 'color'];
+  private subscription: Subscription;
 
   constructor(
     private store: Store<fromApp.AppState>
@@ -23,8 +26,7 @@ export class GateListComponent implements OnInit, OnDestroy {
       .select('gates')
       .pipe(map(gatesState => gatesState.gates))
       .subscribe((gates: Gate[]) => {
-        this.gateList = gates
-        console.log(this.gateList)
+        this.dataSource = new MatTableDataSource(gates);
       })
   }
 

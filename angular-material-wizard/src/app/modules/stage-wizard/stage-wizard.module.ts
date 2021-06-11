@@ -9,7 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { StageWizardComponent } from './stage-wizard-page/stage-wizard.component';
 import { MatSelectModule } from '@angular/material/select';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
 import { GateSetupComponent } from './stage-wizard-page/gate-setup/gate-setup.component';
 import { GateListComponent } from './stage-wizard-page/gate-list/gate-list.component';
@@ -31,6 +32,7 @@ import * as fromGates from './stage-wizard-page/store/gate.reducer'
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    MatTableModule,
     NgxMatColorPickerModule
   ],
   providers: [
