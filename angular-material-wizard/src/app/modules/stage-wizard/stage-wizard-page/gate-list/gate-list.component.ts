@@ -6,6 +6,7 @@ import * as GateActions from '../store/gate.actions';
 import { Gate } from '../store/gate.model';
 import { Subscription } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
+import { ColumnDefinition } from 'src/app/shared/table/table-data.model';
 
 @Component({
   selector: 'app-gate-list',
@@ -15,8 +16,18 @@ import { MatTableDataSource } from '@angular/material/table';
 export class GateListComponent implements OnInit, OnDestroy {
   gateList: Gate[] = [];
   dataSource: MatTableDataSource<Gate>;
-  gatesColumns: string[] = ['gateName', 'stage', 'color', 'delAction'];
-  
+  gatesColumns: ColumnDefinition[] = [
+    { key: 'gateName', label: 'Gate Name' },
+    { key: 'stage', label: 'Stage' },
+    { key: 'color', label: 'Color' },
+    {
+      key: 'delete', label: 'Del', config: {
+        isAction: true,
+        actions: ['delete']
+      }
+    }
+  ]
+
   private subscription: Subscription;
 
   constructor(
@@ -32,11 +43,13 @@ export class GateListComponent implements OnInit, OnDestroy {
       })
   }
 
+  onDeleteGate(index: number): void {
+    console.log(index)
+    this.store.dispatch(GateActions.deleteGate({ index }));
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  onDeleteGate(index: number): void {
-    this.store.dispatch(GateActions.deleteGate({ index }));
-  }
 }

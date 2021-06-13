@@ -1,6 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Gate } from 'src/app/modules/stage-wizard/stage-wizard-page/store/gate.model';
+import { DataSourceModel } from './table-data.model';
 
 @Component({
   selector: 'app-table',
@@ -8,14 +8,20 @@ import { Gate } from 'src/app/modules/stage-wizard/stage-wizard-page/store/gate.
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnChanges {
-  @Input() tableData: Gate[];
-  @Input() tableColumns: string[];
 
-  dataSource: MatTableDataSource<any>;
-  displayedColumns: string[] = ['gateName', 'stage', 'color', 'delAction'];
+  @Input('data') tableData = [];
+  @Input("cols") tableCols = [];
+
+  @Output("onAction") emitter = new EventEmitter();
+
+  dataSource: MatTableDataSource<DataSourceModel>;
 
   constructor() {
     this.dataSource = new MatTableDataSource(this.tableData);
+  }
+
+  get keys() {
+    return this.tableCols.map(({ key }) => key);
   }
 
   ngOnChanges(changes: SimpleChanges) {
