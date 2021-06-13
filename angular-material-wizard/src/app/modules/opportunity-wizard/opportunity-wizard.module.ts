@@ -24,13 +24,13 @@ import { FieldListComponent } from './opportunity-wizard-page/field-set-up/field
     StoreModule.forFeature('fields', fromFields.fieldReducer),
     OpportunityWizardRoutingModule,
     ReactiveFormsModule,
+    MatTableModule,
     MatCardModule,
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule,
-    MatTableModule,
+    MatButtonModule
   ]
 })
 export class OpportunityWizardModule { }
