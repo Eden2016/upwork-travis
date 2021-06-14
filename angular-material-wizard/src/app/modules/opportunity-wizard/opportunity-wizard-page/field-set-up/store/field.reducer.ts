@@ -1,4 +1,3 @@
-import { state } from '@angular/animations';
 import { createReducer, Action, on } from '@ngrx/store';
 import * as FieldActions from './field.actions'
 import { Field } from './field.model'

@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../../store/app.reducer';
+import * as CustomActions from '../store/custom-action.actions'
 import { map } from 'rxjs/operators';
 import { Field } from '../../field-set-up/store/field.model';
 import { staticOptions } from 'src/static-data/static-options';
@@ -35,8 +36,9 @@ export class ActionFormComponent implements OnInit, OnDestroy {
   }
 
   addAction(): void {
-    console.log(this.actionForm.value);
-    // Dispatch Add action here
+    if (this.actionForm.valid) {
+      this.store.dispatch(CustomActions.addCustomAction({ customAction: this.actionForm.value }))
+    }
   }
 
   private getCustomFields(): void {
@@ -44,16 +46,15 @@ export class ActionFormComponent implements OnInit, OnDestroy {
       .pipe(map(fieldsState => fieldsState.fields))
       .subscribe((fields: Field[]) => {
         this.fieldList = fields;
-        console.log(this.fieldList);
       })
   }
 
   private initializeForm(): void {
     this.actionForm = this.formBuilder.group({
       actionName: ['', Validators.required],
-      dateType: ['', Validators.required],
+      dateType: ['userDate', Validators.required],
       operation: ['', Validators.required],
-      daysCounter: ['', Validators.required],
+      daysCounter: [0, Validators.required],
       stage: this.stageControl,
       field: this.fieldControl,
     })
