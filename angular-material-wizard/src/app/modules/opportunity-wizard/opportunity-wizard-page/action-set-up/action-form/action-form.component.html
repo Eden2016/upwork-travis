@@ -1,0 +1,47 @@
+<form [formGroup]="actionForm" class="action-add-form">
+
+  <!-- Action name input -->
+  <mat-form-field>
+    <mat-label>Action Name</mat-label>
+    <input matInput placeholder="Enter Gate Name" formControlName="actionName" required>
+  </mat-form-field>
+
+  <!-- Stage select -->
+  <mat-form-field>
+    <mat-label>Field Type</mat-label>
+    <mat-select formControlName="stage">
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Field select -->
+  <mat-form-field>
+    <mat-label>Field Type</mat-label>
+    <mat-select formControlName="field">
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Date type radio buttons -->
+  <mat-radio-group>
+    <mat-radio-button>
+      user set date
+    </mat-radio-button>
+    <mat-radio-button>
+      system calculated date
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <!-- Operator ('+' or '-') select -->
+  <mat-form-field>
+    <mat-label>Field Type</mat-label>
+    <mat-select formControlName="operation">
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Days count input -->
+  <mat-form-field>
+    <mat-label>Days</mat-label>
+    <input type="number" matInput placeholder="Enter Gate Name" formControlName="daysCounter" required>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="addAction()">Add Field</button>
+</form>
