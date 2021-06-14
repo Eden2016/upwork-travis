@@ -14,8 +14,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
 import { GateSetupComponent } from './stage-wizard-page/gate-setup/gate-setup.component';
 import { GateListComponent } from './stage-wizard-page/gate-list/gate-list.component';
-import { StoreModule } from '@ngrx/store';
-import * as fromGates from './stage-wizard-page/store/gate.reducer'
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
@@ -25,7 +23,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     SharedModule,
     RouterModule,
-    StoreModule.forFeature('gates', fromGates.gateReducer),
     StageWizardRoutingModule,
     ReactiveFormsModule,
     MatCardModule,

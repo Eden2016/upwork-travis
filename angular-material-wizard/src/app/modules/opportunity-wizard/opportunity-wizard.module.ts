@@ -13,8 +13,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatRadioModule } from '@angular/material/radio';
 import { FieldAddFormComponent } from './opportunity-wizard-page/field-set-up/field-add-form/field-add-form.component';
-import { StoreModule } from '@ngrx/store';
-import * as fromFields from './opportunity-wizard-page/field-set-up/store/field.reducer';
 import { FieldListComponent } from './opportunity-wizard-page/field-set-up/field-list/field-list.component'
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ActionFormComponent } from './opportunity-wizard-page/action-set-up/action-form/action-form.component';
@@ -25,7 +23,6 @@ import { ActionFormComponent } from './opportunity-wizard-page/action-set-up/act
     CommonModule,
     SharedModule,
     RouterModule,
-    StoreModule.forFeature('fields', fromFields.fieldReducer),
     OpportunityWizardRoutingModule,
     ReactiveFormsModule,
     MatTableModule,
