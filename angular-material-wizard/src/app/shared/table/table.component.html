@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="dataSource" *ngIf="dataSource.data" class="app-table">
+<table mat-table [dataSource]="dataSource" *ngIf="dataSource.data.length; else noItemsAdded" class="app-table">
 
   <!-- Columns definition with dynamic data -->
   <ng-container *ngFor="let col of tableCols; let i = index" [matColumnDef]="col.key">

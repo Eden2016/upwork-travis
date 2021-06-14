@@ -8,40 +8,44 @@
 
   <!-- Stage select -->
   <mat-form-field>
-    <mat-label>Field Type</mat-label>
+    <mat-label>Stage</mat-label>
     <mat-select formControlName="stage">
     </mat-select>
   </mat-form-field>
 
   <!-- Field select -->
   <mat-form-field>
-    <mat-label>Field Type</mat-label>
+    <mat-label>Field to set</mat-label>
     <mat-select formControlName="field">
     </mat-select>
   </mat-form-field>
 
   <!-- Date type radio buttons -->
-  <mat-radio-group>
-    <mat-radio-button>
+  <mat-radio-group formArrayName="dateType">
+    <mat-radio-button value="1" checked=true style="display: block;">
       user set date
     </mat-radio-button>
-    <mat-radio-button>
+    <mat-radio-button value="2">
       system calculated date
     </mat-radio-button>
   </mat-radio-group>
 
+  <span>Today</span>
   <!-- Operator ('+' or '-') select -->
   <mat-form-field>
-    <mat-label>Field Type</mat-label>
+    <mat-label>+ | -</mat-label>
     <mat-select formControlName="operation">
+      <mat-option>+</mat-option>
+      <mat-option>-</mat-option>
     </mat-select>
   </mat-form-field>
 
   <!-- Days count input -->
   <mat-form-field>
-    <mat-label>Days</mat-label>
+    <mat-label>Number</mat-label>
     <input type="number" matInput placeholder="Enter Gate Name" formControlName="daysCounter" required>
   </mat-form-field>
+  <span>Days</span>
 
   <button mat-raised-button color="primary" (click)="addAction()">Add Field</button>
 </form>
