@@ -9,14 +9,20 @@
   <!-- Stage select -->
   <mat-form-field>
     <mat-label>Stage</mat-label>
-    <mat-select formControlName="stage">
+    <mat-select [formControl]="stageControl" name="stage">
+      <mat-option *ngFor="let stage of stageList; let i = index" [value]="stage.value">
+        {{ stage.label }}
+      </mat-option>
     </mat-select>
   </mat-form-field>
 
   <!-- Field select -->
   <mat-form-field>
     <mat-label>Field to set</mat-label>
-    <mat-select formControlName="field">
+    <mat-select [formControl]="fieldControl" name="field">
+      <mat-option *ngFor="let field of fieldList; let i = index" [value]="field.fieldType">
+        {{ field.fieldName }}
+      </mat-option>
     </mat-select>
   </mat-form-field>
 

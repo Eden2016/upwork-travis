@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../../store/app.reducer';
 import { map } from 'rxjs/operators';
 import { Field } from '../../field-set-up/store/field.model';
+import { staticOptions } from 'src/static-data/static-options';
 
 @Component({
   selector: 'app-action-form',
@@ -14,7 +15,12 @@ import { Field } from '../../field-set-up/store/field.model';
 export class ActionFormComponent implements OnInit, OnDestroy {
 
   actionForm: FormGroup;
-  fieldList: Field[];
+
+  stageList = staticOptions.stageList;
+  fieldList: Field[] = [];
+
+  stageControl = new FormControl('', Validators.required);
+  fieldControl = new FormControl(['', Validators.required]);
 
   private subscription: Subscription;
 
@@ -45,11 +51,11 @@ export class ActionFormComponent implements OnInit, OnDestroy {
   private initializeForm(): void {
     this.actionForm = this.formBuilder.group({
       actionName: ['', Validators.required],
-      stage: ['', Validators.required],
-      field: ['', Validators.required],
       dateType: ['', Validators.required],
       operation: ['', Validators.required],
-      daysCounter: ['', Validators.required]
+      daysCounter: ['', Validators.required],
+      stage: this.stageControl,
+      field: this.fieldControl,
     })
   }
 
