@@ -10,6 +10,7 @@ import * as fieldActions from '../store/field.actions'
   styleUrls: ['./field-add-form.component.scss']
 })
 export class FieldAddFormComponent implements OnInit {
+  
   fieldForm: FormGroup;
 
   constructor(
