@@ -23,7 +23,6 @@ export class GateListComponent implements OnInit, OnDestroy {
     {
       key: 'delete', label: 'Del', config: {
         isAction: true,
-        actions: ['delete']
       }
     }
   ]

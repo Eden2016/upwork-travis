@@ -12,7 +12,7 @@ export class TableComponent implements OnChanges {
   @Input('data') tableData = [];
   @Input("cols") tableCols = [];
 
-  @Output("onAction") emitter = new EventEmitter();
+  @Output("onAction") actionEmitter = new EventEmitter();
 
   dataSource: MatTableDataSource<DataSourceModel>;
 

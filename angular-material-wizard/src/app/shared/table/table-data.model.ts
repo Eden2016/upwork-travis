@@ -6,7 +6,6 @@ export interface ColumnDefinition {
   key: string,
   label: string,
   config?: {
-    isAction: boolean,
-    actions: string[]
+    isAction?: boolean,
   }
 }
