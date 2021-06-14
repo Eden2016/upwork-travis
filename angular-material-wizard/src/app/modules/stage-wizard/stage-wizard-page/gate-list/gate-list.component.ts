@@ -5,7 +5,6 @@ import * as fromApp from '../../../../store/app.reducer';
 import * as GateActions from '../store/gate.actions';
 import { Gate } from '../store/gate.model';
 import { Subscription } from 'rxjs';
-import { MatTableDataSource } from '@angular/material/table';
 import { ColumnDefinition } from 'src/app/shared/table/table-data.model';
 
 @Component({
@@ -14,17 +13,13 @@ import { ColumnDefinition } from 'src/app/shared/table/table-data.model';
   styleUrls: ['./gate-list.component.scss']
 })
 export class GateListComponent implements OnInit, OnDestroy {
+
   gateList: Gate[] = [];
-  dataSource: MatTableDataSource<Gate>;
   gatesColumns: ColumnDefinition[] = [
     { key: 'gateName', label: 'Gate Name' },
     { key: 'stage', label: 'Stage' },
     { key: 'color', label: 'Color' },
-    {
-      key: 'delete', label: 'Del', config: {
-        isAction: true,
-      }
-    }
+    { key: 'delete', label: 'Del', config: { isAction: true } }
   ]
 
   private subscription: Subscription;

@@ -15,11 +15,13 @@ import { FieldAddFormComponent } from './opportunity-wizard-page/field-set-up/fi
 import { StoreModule } from '@ngrx/store';
 import * as fromFields from './opportunity-wizard-page/field-set-up/store/field.reducer';
 import { FieldListComponent } from './opportunity-wizard-page/field-set-up/field-list/field-list.component'
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [OpportunityWizardComponent, FieldAddFormComponent, FieldListComponent],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule,
     StoreModule.forFeature('fields', fromFields.fieldReducer),
     OpportunityWizardRoutingModule,
