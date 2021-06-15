@@ -32,38 +32,42 @@ export class ActionListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.store
       .select('customActions')
-      .pipe(map(actionsState => actionsState.customActions))
+      .pipe((map(actionsState => actionsState.customActions)))
       .subscribe((storedActions: CustomAction[]) => {
-        console.log('Actions: ', storedActions)
+        this.prepareTableData(storedActions);
       })
-
-    // this.subscription = this.store
-    //   .select('customActions')
-    //   .pipe((map(actionsState => actionsState.customActions)))
-    //   .subscribe((storedActions: CustomAction[]) => {
-
-    //     console.log(storedActions);
-
-    //     storedActions.forEach((action: CustomAction) => {
-    //       this.customActionList.push(
-    //         {
-    //           actionName: action.actionName,
-    //           stage: action.stage,
-    //           field: action.field,
-    //           value: this.formatActionValue(action)
-    //         }
-    //       )
-    //     })
-    //   })
   }
 
   onDeleteCustomAction(index: number) {
     // dispatch delete action here
   }
 
+  private prepareTableData(storedActions: CustomAction[]): void {
+    this.customActionList = [];
+
+    storedActions.forEach((action: CustomAction) => {
+      this.customActionList.push(
+        {
+          actionName: action.actionName,
+          stage: action.stage,
+          field: action.field.fieldName,
+          value: this.formatActionValue(action)
+        }
+      )
+    })
+  }
+
   private formatActionValue(action: CustomAction): string {
-    console.log('Passed Action: ', action);
-    return 'Today +' + action.daysCounter + 'Days'
+    if (action.daysCounter === 0) {
+      return 'Today';
+    }
+
+    switch (action.operation) {
+      case 'add':
+        return `Today ${action.daysCounter} + Days`;
+      case 'subtract':
+        return `Today ${action.daysCounter} - Days`;
+    }
   }
 
   ngOnDestroy() {
