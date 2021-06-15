@@ -4,8 +4,13 @@ import { Field } from "../../field-set-up/store/field.model";
 export interface GateRule {
   field: Field,
   gate: Gate,
-  logicOperator: string,
-  mathOperator: string,
+  logicOperator: Operator,
+  mathOperator: Operator,
   stage: string,
   daysCounter: number,
+}
+
+interface Operator {
+  label: string, 
+  value: 'string'
 }

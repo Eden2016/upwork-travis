@@ -63,8 +63,8 @@ export class GateRuleFormComponent implements OnInit, OnDestroy {
   private initializeForm(): void {
     this.gateRuleForm = this.formBuilder.group({
       field: ['', Validators.required],
-      logicOperator: ['equals', Validators.required],
-      mathOperator: ['add', Validators.required],
+      logicOperator: [null, Validators.required],
+      mathOperator: [null, Validators.required],
       daysCounter: [0, Validators.required],
       stage: ['', Validators.required],
       gate: ['', Validators.required],

@@ -4,7 +4,7 @@ export interface CustomAction {
   field: Field,
   actionName: string,
   dateType: string,
-  operation: string,
+  operator: { label: string, value: 'string' },
   stage: string,
   daysCounter: number
 }

@@ -40,8 +40,8 @@
   <!-- Operator ('+' or '-') select -->
   <mat-form-field class="small-field">
     <mat-label>+ | -</mat-label>
-    <mat-select name="mathOperator">
-      <mat-option *ngFor="let operator of mathOperators" [value]="operator.value">
+    <mat-select formControlName="operator">
+      <mat-option *ngFor="let operator of mathOperators" [value]="operator">
         {{ operator.label }}
       </mat-option>
     </mat-select>

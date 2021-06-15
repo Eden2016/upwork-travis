@@ -53,7 +53,7 @@ export class ActionFormComponent implements OnInit, OnDestroy {
     this.actionForm = this.formBuilder.group({
       actionName: ['', Validators.required],
       dateType: ['userDate', Validators.required],
-      operation: ['add', Validators.required],
+      operator: [null, Validators.required],
       daysCounter: [0, Validators.required],
       stage: ['', Validators.required],
       field: ['', Validators.required],

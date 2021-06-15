@@ -1,1 +1,3 @@
-<p>gate-rule-list works!</p>
+<app-table [cols]="gateRuleColumns" [data]="gateRuleList" 
+  (onAction)="onDeleteGateRule($event)">
+</app-table>

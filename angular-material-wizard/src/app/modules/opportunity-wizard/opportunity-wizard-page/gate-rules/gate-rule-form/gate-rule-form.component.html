@@ -15,8 +15,8 @@
   <mat-form-field class="small-field">
     <mat-label>= | < |>
     </mat-label>
-    <mat-select name="logicOperator">
-      <mat-option *ngFor="let operator of logicalOperators; let i = index" [value]="operator.value">
+    <mat-select formControlName="logicOperator">
+      <mat-option *ngFor="let operator of logicalOperators" [value]="operator">
         {{ operator.label }}
       </mat-option>
     </mat-select>
@@ -27,8 +27,8 @@
   <!-- Math operator select -->
   <mat-form-field class="small-field">
     <mat-label>+ | -</mat-label>
-    <mat-select name="mathOperator">
-      <mat-option *ngFor="let operator of mathOperators; let i = index" [value]="operator.value">
+    <mat-select formControlName="mathOperator">
+      <mat-option *ngFor="let operator of mathOperators" [value]="operator">
         {{ operator.label }}
       </mat-option>
     </mat-select>
@@ -51,7 +51,7 @@
   <mat-form-field>
     <mat-label>Stage</mat-label>
     <mat-select formControlName="stage">
-      <mat-option *ngFor="let stage of stageList; let i = index" [value]="stage.value">
+      <mat-option *ngFor="let stage of stageList" [value]="stage.value">
         {{ stage.label }}
       </mat-option>
     </mat-select>
@@ -62,7 +62,7 @@
   <mat-form-field>
     <mat-label>Gate</mat-label>
     <mat-select formControlName="gate">
-      <mat-option *ngFor="let gate of gateList; let i = index" [value]="gate">
+      <mat-option *ngFor="let gate of gateList" [value]="gate">
         {{ gate.gateName }}
       </mat-option>
     </mat-select>

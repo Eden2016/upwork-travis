@@ -63,12 +63,7 @@ export class ActionListComponent implements OnInit, OnDestroy {
       return 'Today';
     }
 
-    switch (action.operation) {
-      case 'add':
-        return `Today ${action.daysCounter} + Days`;
-      case 'subtract':
-        return `Today ${action.daysCounter} - Days`;
-    }
+    return `Today ${action.daysCounter} ${action.operator.label} Days`;
   }
 
   ngOnDestroy() {
