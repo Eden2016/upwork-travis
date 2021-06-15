@@ -1,0 +1,71 @@
+<form [formGroup]="gateRuleForm" class="gate-rule-form">
+
+  <span> If </span>
+  <!-- Field select -->
+  <mat-form-field>
+    <mat-label>Select Field</mat-label>
+    <mat-select formControlName="field">
+      <mat-option *ngFor="let field of fieldList; let i = index" [value]="field">
+        {{ field.fieldName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Logical operator select -->
+  <mat-form-field class="small-field">
+    <mat-label>= | < |>
+    </mat-label>
+    <mat-select name="logicOperator">
+      <mat-option *ngFor="let operator of logicalOperators; let i = index" [value]="operator.value">
+        {{ operator.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <span> Today </span>
+
+  <!-- Math operator select -->
+  <mat-form-field class="small-field">
+    <mat-label>+ | -</mat-label>
+    <mat-select name="mathOperator">
+      <mat-option *ngFor="let operator of mathOperators; let i = index" [value]="operator.value">
+        {{ operator.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Days count input -->
+  <mat-form-field class="small-field">
+    <mat-label>Number of Days</mat-label>
+    <input type="number" matInput placeholder="Enter Days number" 
+      formControlName="daysCounter" required min="0">
+  </mat-form-field>
+
+  <span> Days </span>
+
+  <span class="inner-span"> then show </span>
+
+  <span> on stage </span>
+
+  <!-- Stage select -->
+  <mat-form-field>
+    <mat-label>Stage</mat-label>
+    <mat-select formControlName="stage">
+      <mat-option *ngFor="let stage of stageList; let i = index" [value]="stage.value">
+        {{ stage.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <span> at gate </span>
+  <!-- Gate select -->
+  <mat-form-field>
+    <mat-label>Gate</mat-label>
+    <mat-select formControlName="gate">
+      <mat-option *ngFor="let gate of gateList; let i = index" [value]="gate">
+        {{ gate.gateName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</form>

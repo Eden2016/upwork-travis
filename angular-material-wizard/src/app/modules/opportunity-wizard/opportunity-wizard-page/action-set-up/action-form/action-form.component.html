@@ -9,8 +9,8 @@
   <!-- Stage select -->
   <mat-form-field>
     <mat-label>Stage</mat-label>
-    <mat-select [formControl]="stageControl" name="stage">
-      <mat-option *ngFor="let stage of stageList; let i = index" [value]="stage.value">
+    <mat-select formControlName="stage">
+      <mat-option *ngFor="let stage of stageList" [value]="stage.value">
         {{ stage.label }}
       </mat-option>
     </mat-select>
@@ -19,8 +19,8 @@
   <!-- Field select -->
   <mat-form-field>
     <mat-label>Field to set</mat-label>
-    <mat-select [formControl]="fieldControl" name="field">
-      <mat-option *ngFor="let field of fieldList; let i = index" [value]="field">
+    <mat-select formControlName="field">
+      <mat-option *ngFor="let field of fieldList" [value]="field">
         {{ field.fieldName }}
       </mat-option>
     </mat-select>
@@ -38,20 +38,24 @@
 
   <span>Today</span>
   <!-- Operator ('+' or '-') select -->
-  <mat-form-field>
+  <mat-form-field class="small-field">
     <mat-label>+ | -</mat-label>
-    <mat-select formControlName="operation">
-      <mat-option value="add">+</mat-option>
-      <mat-option value="subtract">-</mat-option>
+    <mat-select name="mathOperator">
+      <mat-option *ngFor="let operator of mathOperators" [value]="operator.value">
+        {{ operator.label }}
+      </mat-option>
     </mat-select>
   </mat-form-field>
 
   <!-- Days count input -->
-  <mat-form-field>
+  <mat-form-field class="small-field">
     <mat-label>Number</mat-label>
-    <input type="number" matInput placeholder="Enter Gate Name" formControlName="daysCounter" required>
+    <input type="number" matInput placeholder="Enter Gate Name" 
+      formControlName="daysCounter" required min="0">
   </mat-form-field>
   <span>Days</span>
 
-  <button mat-raised-button color="primary" (click)="addAction()">Add Field</button>
+  <div>
+    <button mat-raised-button color="primary" (click)="addAction()">Add Field</button>
+  </div>
 </form>

@@ -3,9 +3,9 @@ import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../../store/app.reducer';
 import * as FieldActions from '../store/field.actions';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { Field } from '../store/field.model';
 import { map } from 'rxjs/operators';
 import { ColumnDefinition } from 'src/app/shared/table/table-data.model';
+import { Field } from '../store/field.model';
 
 @Component({
   selector: 'app-field-list',
@@ -15,6 +15,7 @@ import { ColumnDefinition } from 'src/app/shared/table/table-data.model';
 export class FieldListComponent implements OnInit, OnDestroy {
 
   fieldList: Field[] = [];
+  
   fieldsColumns: ColumnDefinition[] = [
     { key: 'fieldName', label: 'Field Name' },
     { key: 'fieldType', label: 'Field Type' },

@@ -5,8 +5,8 @@ import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../../store/app.reducer';
 import * as CustomActions from '../store/custom-action.actions'
 import { map } from 'rxjs/operators';
-import { Field } from '../../field-set-up/store/field.model';
 import { staticOptions } from 'src/static-data/static-options';
+import { Field } from '../../field-set-up/store/field.model';
 
 @Component({
   selector: 'app-action-form',
@@ -17,11 +17,9 @@ export class ActionFormComponent implements OnInit, OnDestroy {
 
   actionForm: FormGroup;
 
-  stageList = staticOptions.stageList;
   fieldList: Field[] = [];
-
-  stageControl = new FormControl('', Validators.required);
-  fieldControl = new FormControl(['', Validators.required]);
+  stageList = staticOptions.stageList;
+  mathOperators = staticOptions.operators.math;
 
   private subscription: Subscription;
 
@@ -53,10 +51,10 @@ export class ActionFormComponent implements OnInit, OnDestroy {
     this.actionForm = this.formBuilder.group({
       actionName: ['', Validators.required],
       dateType: ['userDate', Validators.required],
-      operation: ['', Validators.required],
+      operation: ['add', Validators.required],
       daysCounter: [0, Validators.required],
-      stage: this.stageControl,
-      field: this.fieldControl,
+      stage: ['', Validators.required],
+      field: ['', Validators.required],
     })
   }
 

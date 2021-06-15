@@ -17,6 +17,8 @@ import { FieldListComponent } from './opportunity-wizard-page/field-set-up/field
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ActionFormComponent } from './opportunity-wizard-page/action-set-up/action-form/action-form.component';
 import { ActionListComponent } from './opportunity-wizard-page/action-set-up/action-list/action-list.component';
+import { GateRuleFormComponent } from './opportunity-wizard-page/gate-rules/gate-rule-form/gate-rule-form.component';
+import { GateRuleListComponent } from './opportunity-wizard-page/gate-rules/gate-rule-list/gate-rule-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ActionListComponent } from './opportunity-wizard-page/action-set-up/act
     FieldAddFormComponent,
     FieldListComponent,
     ActionFormComponent,
-    ActionListComponent
+    ActionListComponent,
+    GateRuleFormComponent,
+    GateRuleListComponent
   ],
   imports: [
     CommonModule,

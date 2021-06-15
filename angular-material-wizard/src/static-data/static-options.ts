@@ -13,5 +13,18 @@ export const staticOptions = {
     { value: 'yellow', label: 'yellow' },
     { value: 'orange', label: 'orange' },
     { value: 'red', label: 'red' }
-  ]
+  ],
+  operators: {
+    math: [
+      { value: 'add', label: '+' },
+      { value: 'subtract', label: '-' }
+    ],
+    logical: [
+      { value: 'greater', label: '>' },
+      { value: 'less', label: '<' },
+      { value: 'equals', label: '=' },
+      { value: 'grOrEq', label: '>=' },
+      { value: 'lsOrEq', label: '<=' }
+    ]
+  }
 }
