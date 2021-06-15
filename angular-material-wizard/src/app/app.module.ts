@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 import { gateReducer } from './modules/stage-wizard/stage-wizard-page/store/gate.reducer';
 import { fieldReducer } from './modules/opportunity-wizard/opportunity-wizard-page/field-set-up/store/field.reducer';
 import { customActionReducer } from './modules/opportunity-wizard/opportunity-wizard-page/action-set-up/store/custom-action.reducer';
+import { gateRuleReducer } from './modules/opportunity-wizard/opportunity-wizard-page/gate-rules/store/gate-rule.reducer';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { customActionReducer } from './modules/opportunity-wizard/opportunity-wi
     StoreModule.forRoot({
       gates: gateReducer,
       fields: fieldReducer,
-      customActions: customActionReducer
+      customActions: customActionReducer,
+      gateRules: gateRuleReducer
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, logOnly: environment.production

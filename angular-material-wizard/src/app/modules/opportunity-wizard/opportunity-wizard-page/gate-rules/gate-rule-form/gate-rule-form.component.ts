@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject, Subscription } from 'rxjs';
 import * as fromApp from '../../../../../store/app.reducer';
+import * as GateRuleActions from '../store/gate-rule.actions'
 import { staticOptions } from 'src/static-data/static-options';
 import { Field } from '../../field-set-up/store/field.model';
 import { Store } from '@ngrx/store';
@@ -34,6 +35,14 @@ export class GateRuleFormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getFormData();
     this.initializeForm();
+  }
+
+  addGateRule(): void {
+    if (this.gateRuleForm.valid) {
+      this.store.dispatch(GateRuleActions.addCustomAction(
+        { gateRule: this.gateRuleForm.value }
+      ));
+    }
   }
 
   private getFormData(): void {

@@ -35,7 +35,9 @@ export class ActionFormComponent implements OnInit, OnDestroy {
 
   addAction(): void {
     if (this.actionForm.valid) {
-      this.store.dispatch(CustomActions.addCustomAction({ customAction: this.actionForm.value }))
+      this.store.dispatch(CustomActions.addCustomAction(
+        { customAction: this.actionForm.value }
+      ))
     }
   }
 
