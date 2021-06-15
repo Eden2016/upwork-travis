@@ -32,6 +32,7 @@ export class FieldListComponent implements OnInit, OnDestroy {
       .select('fields')
       .pipe(map(gatesState => gatesState.fields))
       .subscribe((fields: Field[]) => {
+        console.log('Fields:', fields);
         this.fieldList = fields;
       })
   }

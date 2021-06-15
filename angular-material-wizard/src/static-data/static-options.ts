@@ -12,7 +12,6 @@ export const staticOptions = {
     { value: 'green', label: 'green' },
     { value: 'yellow', label: 'yellow' },
     { value: 'orange', label: 'orange' },
-    { value: 'red', label: 'red' },
-
+    { value: 'red', label: 'red' }
   ]
 }

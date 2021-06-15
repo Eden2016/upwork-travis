@@ -33,6 +33,7 @@ export class GateListComponent implements OnInit, OnDestroy {
       .select('gates')
       .pipe(map(gatesState => gatesState.gates))
       .subscribe((gates: Gate[]) => {
+        console.log('Gates: ', gates)
         this.gateList = gates;
       })
   }

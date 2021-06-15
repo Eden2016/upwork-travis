@@ -30,8 +30,6 @@ export class GateSetupComponent implements OnInit {
       stage: this.stageControl,
       color: this.colorControl
     });
-
-    console.log(this.stageList);
   }
 
   addGate(): void {

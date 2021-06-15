@@ -9,6 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { gateReducer } from './modules/stage-wizard/stage-wizard-page/store/gate.reducer';
 import { fieldReducer } from './modules/opportunity-wizard/opportunity-wizard-page/field-set-up/store/field.reducer';
+import { customActionReducer } from './modules/opportunity-wizard/opportunity-wizard-page/action-set-up/store/custom-action.reducer';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,12 @@ import { fieldReducer } from './modules/opportunity-wizard/opportunity-wizard-pa
     BrowserAnimationsModule,
     StoreModule.forRoot({
       gates: gateReducer,
-      fields: fieldReducer
+      fields: fieldReducer,
+      customActions: customActionReducer
     }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

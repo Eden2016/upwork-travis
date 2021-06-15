@@ -16,9 +16,16 @@ import { FieldAddFormComponent } from './opportunity-wizard-page/field-set-up/fi
 import { FieldListComponent } from './opportunity-wizard-page/field-set-up/field-list/field-list.component'
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ActionFormComponent } from './opportunity-wizard-page/action-set-up/action-form/action-form.component';
+import { ActionListComponent } from './opportunity-wizard-page/action-set-up/action-list/action-list.component';
 
 @NgModule({
-  declarations: [OpportunityWizardComponent, FieldAddFormComponent, FieldListComponent, ActionFormComponent],
+  declarations: [
+    OpportunityWizardComponent,
+    FieldAddFormComponent,
+    FieldListComponent,
+    ActionFormComponent,
+    ActionListComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,
