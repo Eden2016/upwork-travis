@@ -21,6 +21,15 @@ const _customActionReducer = createReducer(
       ...state,
       customActions: state.customActions.concat({ ...action.customAction })
     })
+  ),
+
+  on(
+    CustomActions.deleteCustomAction,
+    (state, action) => ({
+      ...state,
+      customActions: state.customActions.filter(
+        (_, index) => index != action.index)
+    })
   )
 );
 

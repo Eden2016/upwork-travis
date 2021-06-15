@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromApp from '../../../../../store/app.reducer'
+import * as fromApp from '../../../../../store/app.reducer';
+import * as CustomActionActions from '../store/custom-action.actions'
 import { ColumnDefinition } from 'src/app/shared/table/table-data.model';
 import { CustomAction } from '../store/custom-action.model';
 import { Subscription } from 'rxjs';
@@ -39,7 +40,7 @@ export class ActionListComponent implements OnInit, OnDestroy {
   }
 
   onDeleteCustomAction(index: number) {
-    // dispatch delete action here
+    this.store.dispatch(CustomActionActions.deleteCustomAction({ index }))
   }
 
   private prepareTableData(storedActions: CustomAction[]): void {

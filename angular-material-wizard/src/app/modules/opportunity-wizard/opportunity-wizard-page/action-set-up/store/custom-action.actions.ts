@@ -7,3 +7,10 @@ export const addCustomAction = createAction(
     customAction: CustomAction
   }>()
 );
+
+export const deleteCustomAction = createAction(
+  '[Custom Actions] Delete Custom Action',
+  props<{
+    index: number
+  }>()
+);

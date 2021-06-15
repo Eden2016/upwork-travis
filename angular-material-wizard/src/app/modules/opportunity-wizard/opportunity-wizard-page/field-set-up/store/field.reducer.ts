@@ -26,9 +26,9 @@ const _fieldReducer = createReducer(
     FieldActions.deleteField,
     (state, action) => ({
       ...state,
-      fields: state.fields.filter((
+      fields: state.fields.filter(
         (_, index) => index != action.index
-      ))
+      )
     })
   )
 );
