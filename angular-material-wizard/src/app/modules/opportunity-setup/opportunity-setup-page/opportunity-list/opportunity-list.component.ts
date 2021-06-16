@@ -1,10 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../store/app.reducer';
+import * as OpportunityActions from '../store/opportunity-action';
 import { ColumnDefinition } from 'src/app/shared/table/table-data.model';
 import { Opportunity } from '../store/opportunity.model';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-opportunity-list',
@@ -24,7 +26,8 @@ export class OpportunityListComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   constructor(
-    private store: Store<fromApp.AppState>
+    private store: Store<fromApp.AppState>,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,11 +40,11 @@ export class OpportunityListComponent implements OnInit, OnDestroy {
   }
 
   onEditOpportunity(index: number): void {
-    console.log('Edit Pressed at index:', index);
+    this.router.navigate([`/${index}`]);
   }
 
   onDeleteOpportunity(index: number): void {
-    console.log('Delete Pressed at index:', index);
+    this.store.dispatch(OpportunityActions.deleteOpportunity({ index }));
   }
 
   ngOnDestroy(): void {

@@ -7,3 +7,10 @@ export const addOpportunity = createAction(
     opportunity: Opportunity
   }>()
 );
+
+export const deleteOpportunity = createAction(
+  '[Opportunity] Delete Opportunity',
+  props<{
+    index: number
+  }>()
+);

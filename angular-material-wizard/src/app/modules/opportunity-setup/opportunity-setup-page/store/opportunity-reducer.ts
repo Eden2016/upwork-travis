@@ -21,8 +21,17 @@ const _opportunityReducer = createReducer(
       ...state,
       opportunities: state.opportunities.concat({ ...action.opportunity })
     })
-  )
+  ),
 
+  on(
+    OpportunityActions.deleteOpportunity,
+    (state, action) => ({
+      ...state,
+      opportunities: state.opportunities.filter(
+        (_, index) => index !== action.index
+      )
+    })
+  )
 );
 
 export const opportunityReducer = (state: State, action: Action) => {

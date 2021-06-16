@@ -27,7 +27,7 @@ const _fieldReducer = createReducer(
     (state, action) => ({
       ...state,
       fields: state.fields.filter(
-        (_, index) => index != action.index
+        (_, index) => index !== action.index
       )
     })
   )
