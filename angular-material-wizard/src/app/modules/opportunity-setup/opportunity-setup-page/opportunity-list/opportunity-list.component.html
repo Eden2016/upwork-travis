@@ -1,1 +1,3 @@
-<p>opportunity-list works!</p>
+<app-table [cols]="opportunitiesColumns" [data]="opportunityList" 
+  (deleteAction)="onDeleteOpportunity($event)" (editAction)="onEditOpportunity($event)">
+</app-table>

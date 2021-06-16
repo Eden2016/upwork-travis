@@ -10,9 +10,10 @@ import { DataSourceModel } from './table-data.model';
 export class TableComponent implements OnChanges {
 
   @Input('data') tableData = [];
-  @Input("cols") tableCols = [];
+  @Input('cols') tableCols = [];
 
-  @Output("onAction") actionEmitter = new EventEmitter();
+  @Output() deleteAction = new EventEmitter();
+  @Output() editAction = new EventEmitter();
 
   dataSource: MatTableDataSource<DataSourceModel>;
 
@@ -20,11 +21,11 @@ export class TableComponent implements OnChanges {
     this.dataSource = new MatTableDataSource(this.tableData);
   }
 
-  get keys() {
+  get keys(): string[] {
     return this.tableCols.map(({ key }) => key);
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     this.dataSource.data = changes.tableData.currentValue;
   }
 

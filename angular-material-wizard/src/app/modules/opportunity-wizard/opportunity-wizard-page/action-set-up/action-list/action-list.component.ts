@@ -21,7 +21,7 @@ export class ActionListComponent implements OnInit, OnDestroy {
     { key: 'stage', label: 'Show Action on Stage(s)' },
     { key: 'field', label: 'Field to set' },
     { key: 'value', label: 'Value' },
-    { key: 'delete', label: 'Del', config: { isAction: true } }
+    { key: 'delete', label: '', config: { isAction: true } }
   ];
 
   private subscription: Subscription;
@@ -39,8 +39,8 @@ export class ActionListComponent implements OnInit, OnDestroy {
       })
   }
 
-  onDeleteCustomAction(index: number) {
-    this.store.dispatch(CustomActionActions.deleteCustomAction({ index }))
+  onDeleteCustomAction(index: number): void {
+    this.store.dispatch(CustomActionActions.deleteCustomAction({ index }));
   }
 
   private getFormData(storedActions: CustomAction[]): void {
@@ -66,7 +66,7 @@ export class ActionListComponent implements OnInit, OnDestroy {
     return `Today ${action.daysCounter} ${action.operator.label} Days`;
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 

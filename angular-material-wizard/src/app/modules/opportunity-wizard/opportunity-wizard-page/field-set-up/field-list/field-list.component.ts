@@ -15,11 +15,11 @@ import { Field } from '../store/field.model';
 export class FieldListComponent implements OnInit, OnDestroy {
 
   fieldList: Field[] = [];
-  
+
   fieldsColumns: ColumnDefinition[] = [
     { key: 'fieldName', label: 'Field Name' },
     { key: 'fieldType', label: 'Field Type' },
-    { key: 'delete', label: 'Del', config: { isAction: true } }
+    { key: 'delete', label: '', config: { isAction: true } }
   ];
 
   private subscription: Subscription;

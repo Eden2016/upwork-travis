@@ -19,8 +19,8 @@ export class GateListComponent implements OnInit, OnDestroy {
     { key: 'gateName', label: 'Gate Name' },
     { key: 'stage', label: 'Stage' },
     { key: 'color', label: 'Color' },
-    { key: 'delete', label: 'Del', config: { isAction: true } }
-  ]
+    { key: 'delete', label: '', config: { isAction: true } }
+  ];
 
   private subscription: Subscription;
 

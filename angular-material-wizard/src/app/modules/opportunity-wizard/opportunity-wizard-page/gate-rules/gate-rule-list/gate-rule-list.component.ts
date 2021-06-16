@@ -21,7 +21,7 @@ export class GateRuleListComponent implements OnInit {
     { key: 'value', label: 'Value' },
     { key: 'gateName', label: 'Gate' },
     { key: 'stageName', label: 'Stage' },
-    { key: 'delete', label: 'Del', config: { isAction: true } }
+    { key: 'delete', label: '', config: { isAction: true } }
   ];
 
   private subscription: Subscription;

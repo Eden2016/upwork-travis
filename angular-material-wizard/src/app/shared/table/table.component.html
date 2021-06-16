@@ -8,8 +8,15 @@
         {{ element[col.key] }}
       </ng-container>
       <ng-template #hasConfig>
-        <ng-container *ngIf="col.config.isAction && col.key === 'delete'">
-          <button (click)="actionEmitter.emit(rowIndex)" mat-button> X </button>
+        <ng-container *ngIf="col.key === 'edit'">
+          <mat-icon (click)="editAction.emit(rowIndex)" class="table-icon">
+            edit
+          </mat-icon>
+        </ng-container>
+        <ng-container *ngIf="col.key === 'delete'">
+          <mat-icon (click)="deleteAction.emit(rowIndex)" class="table-icon">
+              delete
+          </mat-icon>
         </ng-container>
       </ng-template>
     </td>
