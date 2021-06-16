@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./modules/opportunity-wizard/opportunity-wizard.module').then(m => m.OpportunityWizardModule),
-  },
+  {
+    path: '',
+    loadChildren: () => import('./modules/opportunity-setup/opportunity-setup.module').then(m => m.OpportunitySetupModule),
+  },
+  {
+    path: ':id',
+    loadChildren: () => import('./modules/opportunity-wizard/opportunity-wizard.module').then(m => m.OpportunityWizardModule),
+  },
 ];
 
 @NgModule({

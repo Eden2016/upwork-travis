@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../../store/app.reducer';
-import * as fieldActions from '../store/field.actions'
+import * as FieldActions from '../store/field.actions'
 
 @Component({
   selector: 'app-field-add-form',
@@ -27,7 +27,7 @@ export class FieldAddFormComponent implements OnInit {
 
   addCustomField(): void {
     if (this.fieldForm.valid) {
-      this.store.dispatch(fieldActions.addField({ field: this.fieldForm.value }));
+      this.store.dispatch(FieldActions.addField({ field: this.fieldForm.value }));
     }
   }
 

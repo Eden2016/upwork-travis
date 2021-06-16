@@ -8,7 +8,7 @@ export interface State {
 
 const initialState: State = {
   fields: []
-}
+};
 
 const _fieldReducer = createReducer(
 
@@ -35,4 +35,4 @@ const _fieldReducer = createReducer(
 
 export const fieldReducer = (state: State, action: Action) => {
   return _fieldReducer(state, action);
-}
+};

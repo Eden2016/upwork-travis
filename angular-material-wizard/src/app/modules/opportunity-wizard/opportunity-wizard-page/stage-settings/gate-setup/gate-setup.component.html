@@ -1,9 +1,12 @@
 <form [formGroup]="gateForm" class="gate-setup-form">
+
   <ng-template matStepLabel>Gate Setup</ng-template>
+
   <mat-form-field>
     <mat-label>Gate Name</mat-label>
     <input matInput placeholder="Enter Gate Name" formControlName="gateName" required>
   </mat-form-field>
+
   <mat-form-field>
     <mat-label>Stage</mat-label>
     <mat-select [formControl]="stageControl" name="stage">
@@ -12,6 +15,7 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+
   <mat-form-field>
     <mat-label>Color</mat-label>
     <mat-select [formControl]="colorControl" name="color">
@@ -20,5 +24,9 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="addGate()">Add to Gate List</button>
+
+  <div class="add-button-conatiner">
+    <button mat-raised-button color="primary" (click)="addGate()">Add to Gate List</button>
+  </div>
+
 </form>

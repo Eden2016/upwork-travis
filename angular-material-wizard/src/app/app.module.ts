@@ -11,6 +11,7 @@ import { fieldReducer } from './modules/opportunity-wizard/opportunity-wizard-pa
 import { customActionReducer } from './modules/opportunity-wizard/opportunity-wizard-page/action-set-up/store/custom-action.reducer';
 import { gateRuleReducer } from './modules/opportunity-wizard/opportunity-wizard-page/gate-rules/store/gate-rule.reducer';
 import { gateReducer } from './modules/opportunity-wizard/opportunity-wizard-page/stage-settings/store/gate.reducer';
+import { opportunityReducer } from './modules/opportunity-setup/opportunity-setup-page/store/opportunity-reducer';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { gateReducer } from './modules/opportunity-wizard/opportunity-wizard-pag
     AppRoutingModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({
+      opportunities: opportunityReducer,
       gates: gateReducer,
       fields: fieldReducer,
       customActions: customActionReducer,

@@ -1,0 +1,14 @@
+<form [formGroup]="opportunityForm" class="field-add-form">
+
+  <div>
+    <mat-form-field>
+      <mat-label>New Opportunity</mat-label>
+      <input matInput type="text" formControlName="name" required>
+    </mat-form-field>
+  </div>
+
+  <div class="add-button-conatiner">
+    <button mat-raised-button color="primary" (click)="addOpportunity()">Add Opportunity</button>
+  </div>
+
+</form>
