@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { staticOptions } from 'src/static-data/static-options';
-import * as fromApp from '../../../../store/app.reducer';
+import * as fromApp from '../../../../../store/app.reducer';
 import * as gateActions from '../store/gate.actions'
 
 @Component({

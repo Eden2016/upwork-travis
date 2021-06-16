@@ -7,7 +7,7 @@ import { staticOptions } from 'src/static-data/static-options';
 import { Field } from '../../field-set-up/store/field.model';
 import { Store } from '@ngrx/store';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
-import { Gate } from 'src/app/modules/stage-wizard/stage-wizard-page/store/gate.model';
+import { Gate } from '../../stage-settings/store/gate.model';
 
 @Component({
   selector: 'app-gate-rule-form',

@@ -1,5 +1,6 @@
-import { Gate } from "src/app/modules/stage-wizard/stage-wizard-page/store/gate.model";
+
 import { Field } from "../../field-set-up/store/field.model";
+import { Gate } from "../../stage-settings/store/gate.model";
 
 export interface GateRule {
   field: Field,

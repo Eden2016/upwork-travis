@@ -1,0 +1,24 @@
+<form [formGroup]="gateForm" class="gate-setup-form">
+  <ng-template matStepLabel>Gate Setup</ng-template>
+  <mat-form-field>
+    <mat-label>Gate Name</mat-label>
+    <input matInput placeholder="Enter Gate Name" formControlName="gateName" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Stage</mat-label>
+    <mat-select [formControl]="stageControl" name="stage">
+      <mat-option *ngFor="let stage of stageList; let i = index" [value]="stage.value">
+        {{ stage.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Color</mat-label>
+    <mat-select [formControl]="colorControl" name="color">
+      <mat-option *ngFor="let color of colorList; let i = index" [value]="color.value">
+        {{ color.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="addGate()">Add to Gate List</button>
+</form>

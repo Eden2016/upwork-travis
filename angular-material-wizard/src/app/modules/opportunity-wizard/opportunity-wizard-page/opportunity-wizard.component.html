@@ -1,24 +1,59 @@
 <mat-card class="opportunity-wrapper">
+
   <mat-card-header>
-    <mat-card-title> Opportunity </mat-card-title>
+    <mat-card-title> Opportunity Setup</mat-card-title>
   </mat-card-header>
+
   <mat-card-content>
-    <mat-horizontal-stepper>
-      <mat-step>
-        <ng-template matStepLabel>Field set up</ng-template>
+
+    <mat-accordion>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Fields
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
         <app-field-add-form></app-field-add-form>
         <app-field-list></app-field-list>
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Action Setup</ng-template>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Actions
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
         <app-action-form></app-action-form>
         <app-action-list></app-action-list>
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Gate Rules</ng-template>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Gate Rules
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
         <app-gate-rule-form></app-gate-rule-form>
         <app-gate-rule-list></app-gate-rule-list>
-      </mat-step>
-    </mat-horizontal-stepper>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Stage Settings
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <app-gate-setup></app-gate-setup>
+        <app-gate-list></app-gate-list>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+
   </mat-card-content>
+
 </mat-card>

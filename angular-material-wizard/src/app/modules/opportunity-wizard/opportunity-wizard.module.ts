@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { OpportunityWizardRoutingModule } from './opportunity-wizard-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import { MatStepperModule } from '@angular/material/stepper'
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -19,6 +19,8 @@ import { ActionFormComponent } from './opportunity-wizard-page/action-set-up/act
 import { ActionListComponent } from './opportunity-wizard-page/action-set-up/action-list/action-list.component';
 import { GateRuleFormComponent } from './opportunity-wizard-page/gate-rules/gate-rule-form/gate-rule-form.component';
 import { GateRuleListComponent } from './opportunity-wizard-page/gate-rules/gate-rule-list/gate-rule-list.component';
+import { GateSetupComponent } from './opportunity-wizard-page/stage-settings/gate-setup/gate-setup.component';
+import { GateListComponent } from './opportunity-wizard-page/stage-settings/gate-list/gate-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { GateRuleListComponent } from './opportunity-wizard-page/gate-rules/gate
     ActionFormComponent,
     ActionListComponent,
     GateRuleFormComponent,
-    GateRuleListComponent
+    GateRuleListComponent,
+    GateSetupComponent,
+    GateListComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +42,7 @@ import { GateRuleListComponent } from './opportunity-wizard-page/gate-rules/gate
     ReactiveFormsModule,
     MatTableModule,
     MatCardModule,
-    MatStepperModule,
+    MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,

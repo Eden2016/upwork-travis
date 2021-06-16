@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import * as fromApp from '../../../../store/app.reducer';
+import * as fromApp from '../../../../../store/app.reducer';
 import * as GateActions from '../store/gate.actions';
 import { Gate } from '../store/gate.model';
 import { Subscription } from 'rxjs';
