@@ -35,7 +35,7 @@ export class ActionListComponent implements OnInit, OnDestroy {
       .select('customActions')
       .pipe((map(actionsState => actionsState.customActions)))
       .subscribe((storedActions: CustomAction[]) => {
-        this.prepareTableData(storedActions);
+        this.getFormData(storedActions);
       })
   }
 
@@ -43,7 +43,7 @@ export class ActionListComponent implements OnInit, OnDestroy {
     this.store.dispatch(CustomActionActions.deleteCustomAction({ index }))
   }
 
-  private prepareTableData(storedActions: CustomAction[]): void {
+  private getFormData(storedActions: CustomAction[]): void {
     this.customActionList = [];
 
     storedActions.forEach((action: CustomAction) => {

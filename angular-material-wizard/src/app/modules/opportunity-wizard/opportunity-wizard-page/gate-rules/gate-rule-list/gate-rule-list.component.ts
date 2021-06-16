@@ -39,8 +39,8 @@ export class GateRuleListComponent implements OnInit {
       })
   }
 
-  onDeleteGateRule(index): void {
-    // dispatch delete action
+  onDeleteGateRule(index: number): void {
+    this.store.dispatch(GateRuleActions.deleteGateRule({ index }));
   }
 
   private prepareTableData(gateRules: GateRule[]): void {
@@ -65,7 +65,7 @@ export class GateRuleListComponent implements OnInit {
       return valueString;
     }
 
-    return valueString + ' ' + gateRule.mathOperator.label + ' ' + gateRule.daysCounter;
+    return `${valueString} ${gateRule.mathOperator.label} ${gateRule.daysCounter}`;
   }
 
 }

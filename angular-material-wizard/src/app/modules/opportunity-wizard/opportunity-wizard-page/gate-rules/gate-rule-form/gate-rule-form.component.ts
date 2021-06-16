@@ -39,7 +39,7 @@ export class GateRuleFormComponent implements OnInit, OnDestroy {
 
   addGateRule(): void {
     if (this.gateRuleForm.valid) {
-      this.store.dispatch(GateRuleActions.addCustomAction(
+      this.store.dispatch(GateRuleActions.addGateRule(
         { gateRule: this.gateRuleForm.value }
       ));
     }

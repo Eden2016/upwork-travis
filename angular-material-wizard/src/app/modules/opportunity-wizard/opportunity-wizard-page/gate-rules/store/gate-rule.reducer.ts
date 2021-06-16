@@ -15,10 +15,19 @@ const _gateRuleReducer = createReducer(
   initialState,
 
   on(
-    GateRuleActions.addCustomAction,
+    GateRuleActions.addGateRule,
     (state, action) => ({
       ...state,
       gateRules: state.gateRules.concat({ ...action.gateRule })
+    })
+  ),
+
+  on(
+    GateRuleActions.deleteGateRule,
+    (state, action) => ({
+      ...state,
+      gateRules: state.gateRules.filter(
+        (_, index) => index != action.index)
     })
   )
 );
