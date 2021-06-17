@@ -27,7 +27,15 @@ const _gateRuleReducer = createReducer(
     (state, action) => ({
       ...state,
       gateRules: state.gateRules.filter(
-        (_, index) => index != action.index)
+        (_, index) => index !== action.index)
+    })
+  ),
+
+  on(
+    GateRuleActions.clearGateRuleState,
+    (state, action) => ({
+      ...state,
+      gateRules: []
     })
   )
 );

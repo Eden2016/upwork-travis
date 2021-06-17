@@ -22,3 +22,7 @@ export const deleteField = createAction(
     index: number
   }>()
 );
+
+export const clearFieldState = createAction(
+  '[Field] Clear Store'
+);

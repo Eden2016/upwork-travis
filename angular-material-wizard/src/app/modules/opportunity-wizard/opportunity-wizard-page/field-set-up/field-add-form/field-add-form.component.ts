@@ -10,7 +10,7 @@ import * as FieldActions from '../store/field.actions'
   styleUrls: ['./field-add-form.component.scss']
 })
 export class FieldAddFormComponent implements OnInit {
-  
+
   fieldForm: FormGroup;
 
   constructor(
@@ -22,7 +22,7 @@ export class FieldAddFormComponent implements OnInit {
     this.fieldForm = this.formBuilder.group({
       fieldName: ['', Validators.required],
       fieldType: ['', Validators.required]
-    })
+    });
   }
 
   addCustomField(): void {

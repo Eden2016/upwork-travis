@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../../store/app.reducer';
 import * as FieldActions from '../store/field.actions';
@@ -16,7 +16,7 @@ import { EditFieldDialogComponent } from './edit-field-dialog/edit-field-dialog.
 })
 export class FieldListComponent implements OnInit, OnDestroy {
 
-  fieldList: Field[] = [];
+  @Input() fieldList: Field[];
 
   fieldsColumns: ColumnDefinition[] = [
     { key: 'fieldName', label: 'Field Name' },
@@ -33,6 +33,12 @@ export class FieldListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    if (this.fieldList.length > 0) {
+      this.fieldList.forEach(field => {
+        this.store.dispatch(FieldActions.addField({ field }));
+      });
+    }
+
     this.subscription = this.store
       .select('fields')
       .pipe(map(fieldsState => fieldsState.fields))

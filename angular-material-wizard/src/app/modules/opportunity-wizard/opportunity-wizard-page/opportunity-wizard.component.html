@@ -17,7 +17,6 @@
       </div>
     </form>
 
-
     <mat-accordion>
 
       <mat-expansion-panel>
@@ -28,7 +27,7 @@
         </mat-expansion-panel-header>
 
         <app-field-add-form></app-field-add-form>
-        <app-field-list></app-field-list>
+        <app-field-list [fieldList]="opportunity.fields"></app-field-list>
       </mat-expansion-panel>
 
       <mat-expansion-panel>
@@ -39,7 +38,7 @@
         </mat-expansion-panel-header>
 
         <app-action-form></app-action-form>
-        <app-action-list></app-action-list>
+        <app-action-list [actionList]="opportunity.actions"></app-action-list>
       </mat-expansion-panel>
 
       <mat-expansion-panel>
@@ -50,7 +49,7 @@
         </mat-expansion-panel-header>
 
         <app-gate-rule-form></app-gate-rule-form>
-        <app-gate-rule-list></app-gate-rule-list>
+        <app-gate-rule-list [gateRuleList]="opportunity.actions"></app-gate-rule-list>
       </mat-expansion-panel>
 
       <mat-expansion-panel>

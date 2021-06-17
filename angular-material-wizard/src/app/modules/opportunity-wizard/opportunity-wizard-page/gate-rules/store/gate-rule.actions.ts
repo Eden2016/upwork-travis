@@ -14,3 +14,7 @@ export const deleteGateRule = createAction(
     index: number
   }>()
 );
+
+export const clearGateRuleState = createAction(
+  '[Gate Rule] Clear Store'
+);

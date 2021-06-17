@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../../store/app.reducer';
 import * as CustomActionActions from '../store/custom-action.actions'
@@ -14,6 +14,7 @@ import { map } from 'rxjs/operators';
 })
 export class ActionListComponent implements OnInit, OnDestroy {
 
+  @Input() actionList: CustomAction[];
   customActionList = [];
 
   customActionColumns: ColumnDefinition[] = [
@@ -31,12 +32,18 @@ export class ActionListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    if (this.actionList.length > 0) {
+      this.actionList.forEach(action => {
+        this.store.dispatch(CustomActionActions.addCustomAction({ customAction: action }));
+      });
+    }
+
     this.subscription = this.store
       .select('customActions')
-      .pipe((map(actionsState => actionsState.customActions)))
+      .pipe(map(actionsState => actionsState.customActions))
       .subscribe((storedActions: CustomAction[]) => {
         this.getFormData(storedActions);
-      })
+      });
   }
 
   onDeleteCustomAction(index: number): void {
@@ -54,8 +61,8 @@ export class ActionListComponent implements OnInit, OnDestroy {
           field: action.field.fieldName,
           value: this.formatActionValue(action)
         }
-      )
-    })
+      );
+    });
   }
 
   private formatActionValue(action: CustomAction): string {

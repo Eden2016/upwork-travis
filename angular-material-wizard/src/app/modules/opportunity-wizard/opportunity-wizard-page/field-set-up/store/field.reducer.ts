@@ -41,6 +41,14 @@ const _fieldReducer = createReducer(
         (_, index) => index !== action.index
       )
     })
+  ),
+
+  on(
+    FieldActions.clearFieldState,
+    (state, action) => ({
+      ...state,
+      fields: []
+    })
   )
 );
 

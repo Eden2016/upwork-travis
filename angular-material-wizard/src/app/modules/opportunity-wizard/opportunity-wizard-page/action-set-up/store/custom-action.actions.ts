@@ -14,3 +14,7 @@ export const deleteCustomAction = createAction(
     index: number
   }>()
 );
+
+export const clearCustomActionState = createAction(
+  '[Custom Actions] Clear Store'
+);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../../../store/app.reducer';
 import * as GateRuleActions from '../store/gate-rule.actions';
@@ -12,9 +12,10 @@ import { GateRule } from '../store/gate.rule.model';
   templateUrl: './gate-rule-list.component.html',
   styleUrls: ['./gate-rule-list.component.scss']
 })
-export class GateRuleListComponent implements OnInit {
+export class GateRuleListComponent implements OnInit, OnDestroy {
 
-  gateRuleList = [];
+  @Input() gateRuleList: GateRule[];
+  gateRulesData = [];
 
   gateRuleColumns: ColumnDefinition[] = [
     { key: 'fieldName', label: 'Field Name' },
@@ -31,12 +32,18 @@ export class GateRuleListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (this.gateRuleList.length > 0) {
+      this.gateRuleList.forEach((gateRule: GateRule) => {
+        this.store.dispatch(GateRuleActions.addGateRule({ gateRule }));
+      });
+    }
+
     this.subscription = this.store
       .select('gateRules')
       .pipe(map(gateRuleState => gateRuleState.gateRules))
       .subscribe((gateRules: GateRule[]) => {
         this.prepareTableData(gateRules);
-      })
+      });
   }
 
   onDeleteGateRule(index: number): void {
@@ -44,28 +51,32 @@ export class GateRuleListComponent implements OnInit {
   }
 
   private prepareTableData(gateRules: GateRule[]): void {
-    this.gateRuleList = [];
+    this.gateRulesData = [];
 
     gateRules.forEach((gateRule: GateRule) => {
-      this.gateRuleList.push(
+      this.gateRulesData.push(
         {
           fieldName: gateRule.field.fieldName,
           gateName: gateRule.gate.gateName,
           stageName: gateRule.stage,
           value: this.formatGateRuleValue(gateRule)
         }
-      )
-    })
+      );
+    });
   }
 
   private formatGateRuleValue(gateRule: GateRule): string {
-    let valueString = `${gateRule.logicOperator.label} Today`
+    let valueString = `${gateRule.logicOperator.label} Today`;
 
     if (gateRule.daysCounter === 0) {
       return valueString;
     }
 
     return `${valueString} ${gateRule.mathOperator.label} ${gateRule.daysCounter}`;
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as CustomActions from './custom-action.actions';
-import { CustomAction } from "./custom-action.model";
+import { CustomAction } from './custom-action.model';
 
 
 export interface State {
@@ -28,7 +28,15 @@ const _customActionReducer = createReducer(
     (state, action) => ({
       ...state,
       customActions: state.customActions.filter(
-        (_, index) => index != action.index)
+        (_, index) => index !== action.index)
+    })
+  ),
+
+  on(
+    CustomActions.clearCustomActionState,
+    (state, action) => ({
+      ...state,
+      customActions: []
     })
   )
 );
