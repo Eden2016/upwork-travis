@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { OpportunityWizardComponent } from './opportunity-wizard-page/opportunity-wizard.component';
 import { RouterModule } from '@angular/router';
 import { OpportunityWizardRoutingModule } from './opportunity-wizard-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { FieldAddFormComponent } from './opportunity-wizard-page/field-set-up/field-add-form/field-add-form.component';
 import { FieldListComponent } from './opportunity-wizard-page/field-set-up/field-list/field-list.component'
@@ -21,6 +21,7 @@ import { GateRuleFormComponent } from './opportunity-wizard-page/gate-rules/gate
 import { GateRuleListComponent } from './opportunity-wizard-page/gate-rules/gate-rule-list/gate-rule-list.component';
 import { GateSetupComponent } from './opportunity-wizard-page/stage-settings/gate-setup/gate-setup.component';
 import { GateListComponent } from './opportunity-wizard-page/stage-settings/gate-list/gate-list.component';
+import { EditFieldDialogComponent } from './opportunity-wizard-page/field-set-up/field-list/edit-field-dialog/edit-field-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { GateListComponent } from './opportunity-wizard-page/stage-settings/gate
     GateRuleFormComponent,
     GateRuleListComponent,
     GateSetupComponent,
-    GateListComponent
+    GateListComponent,
+    EditFieldDialogComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +42,8 @@ import { GateListComponent } from './opportunity-wizard-page/stage-settings/gate
     RouterModule,
     OpportunityWizardRoutingModule,
     ReactiveFormsModule,
-    MatTableModule,
+    FormsModule,
+    MatDialogModule,
     MatCardModule,
     MatExpansionModule,
     MatFormFieldModule,

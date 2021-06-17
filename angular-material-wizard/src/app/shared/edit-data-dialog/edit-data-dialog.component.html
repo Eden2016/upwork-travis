@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Edit selected {{ data.model }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="dialogForm">
+    <ng-container *ngIf="data.inputFields.length">
+      <mat-form-field *ngFor="let input of data.inputFields">
+        <mat-label>{{ input.label }}</mat-label>
+        <input matInput formControlName="input.name">
+      </mat-form-field>
+    </ng-container>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="dialogForm" cdkFocusInitial>Save</button>
+</div>

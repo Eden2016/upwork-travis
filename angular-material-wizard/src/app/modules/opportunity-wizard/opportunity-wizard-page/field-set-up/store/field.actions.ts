@@ -8,6 +8,14 @@ export const addField = createAction(
   }>()
 );
 
+export const editField = createAction(
+  '[Field] Edit Field',
+  props<{
+    field: Field,
+    index: number
+  }>()
+);
+
 export const deleteField = createAction(
   '[Field] Delete Field',
   props<{

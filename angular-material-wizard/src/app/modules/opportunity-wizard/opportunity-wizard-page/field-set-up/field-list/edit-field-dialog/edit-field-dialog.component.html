@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Edit selected Field</h1>
+<div mat-dialog-content>
+    <ng-container>
+      <mat-form-field>
+        <mat-label>Field Name</mat-label>
+        <input matInput [(ngModel)]="data.fieldName">
+      </mat-form-field>
+    </ng-container>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.fieldName" cdkFocusInitial>Save</button>
+</div>

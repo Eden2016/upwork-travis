@@ -1,11 +1,10 @@
 export interface DataSourceModel {
   key: string;
 }
-
 export interface ColumnDefinition {
-  key: string,
-  label: string,
+  key: string;
+  label: string;
   config?: {
-    isAction?: boolean,
-  }
+    isAction?: boolean
+  };
 }

@@ -1,1 +1,4 @@
-<app-table [cols]="fieldsColumns" [data]="fieldList" (deleteAction)="onDeleteField($event)"></app-table>
+<app-table [cols]="fieldsColumns" [data]="fieldList" (deleteAction)="onDeleteField($event)"
+  (editAction)="onEditField($event)"
+>
+</app-table>
