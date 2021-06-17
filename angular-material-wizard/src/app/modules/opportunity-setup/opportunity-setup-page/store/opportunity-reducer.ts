@@ -24,6 +24,16 @@ const _opportunityReducer = createReducer(
   ),
 
   on(
+    OpportunityActions.updateOpportunity,
+    (state, action) => ({
+      ...state,
+      opportunities: state.opportunities.map(
+        ((opportunity, index) => index === action.index ? { ...action.opportunity } : opportunity)
+      )
+    })
+  ),
+
+  on(
     OpportunityActions.deleteOpportunity,
     (state, action) => ({
       ...state,

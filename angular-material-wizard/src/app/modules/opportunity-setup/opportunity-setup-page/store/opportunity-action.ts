@@ -8,6 +8,14 @@ export const addOpportunity = createAction(
   }>()
 );
 
+export const updateOpportunity = createAction(
+  '[Opportunity] Update Opportunity',
+  props<{
+    opportunity: Opportunity,
+    index: number
+  }>()
+);
+
 export const deleteOpportunity = createAction(
   '[Opportunity] Delete Opportunity',
   props<{

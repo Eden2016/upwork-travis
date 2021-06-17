@@ -5,6 +5,18 @@
   </mat-card-header>
 
   <mat-card-content>
+    <form [formGroup]="opportunityForm" class="opportunity-edit-form">
+
+      <mat-form-field>
+        <mat-label>Opportunity Name</mat-label>
+        <input matInput type="text" formControlName="name" required>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary" class="save-btn" (click)="saveOpportunity()">Save</button>
+        <button mat-raised-button color="accent" (click)="cancel()">Cancel</button>
+      </div>
+    </form>
+
 
     <mat-accordion>
 

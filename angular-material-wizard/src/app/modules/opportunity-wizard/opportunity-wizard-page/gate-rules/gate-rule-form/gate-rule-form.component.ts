@@ -53,11 +53,11 @@ export class GateRuleFormComponent implements OnInit, OnDestroy {
         this.fieldList = fields;
         return this.store.select('gates').pipe(
           map(gatesState => gatesState.gates)
-        )
+        );
       })
     ).subscribe((gates: Gate[]) => {
       this.gateList = gates;
-    })
+    });
   }
 
   private initializeForm(): void {
@@ -71,7 +71,7 @@ export class GateRuleFormComponent implements OnInit, OnDestroy {
     })
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.onDestroy$.next();
     this.onDestroy$.complete();
   }
